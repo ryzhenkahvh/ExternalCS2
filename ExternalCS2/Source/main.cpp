@@ -16,6 +16,7 @@
 #include "../Settings.h"
 #include "../ColorUtils.h"
 #include "../ColorMode.h"
+#include "../RoundedRect.h"
 
 Menu* g_pMenu = nullptr;
 
@@ -100,21 +101,135 @@ int main() {
                                 g_Settings.boxGradientEnd,
                                 ratio
                             );
-                            overlay.DrawRect(
-                                bBox.x + i - 1,
-                                bBox.y + i - 1,
-                                bBox.w - i + 1,
-                                bBox.h - i + 1,
-                                1,
-                                currentColor
-                            );
+                            if (g_Settings.bBoxRounded) {
+                                // Внешняя обводка
+                                overlay.DrawFilledRect(
+                                    (long)(bBox.x + g_Settings.boxRadius),
+                                    (long)(bBox.y + i),
+                                    (long)(bBox.w - g_Settings.boxRadius),
+                                    (long)(bBox.y + i + 1),
+                                    currentColor
+                                ); // верх
+                                overlay.DrawFilledRect(
+                                    (long)(bBox.x + g_Settings.boxRadius),
+                                    (long)(bBox.h - i),
+                                    (long)(bBox.w - g_Settings.boxRadius),
+                                    (long)(bBox.h - i + 1),
+                                    currentColor
+                                ); // низ
+                                overlay.DrawFilledRect(
+                                    (long)(bBox.x + i),
+                                    (long)(bBox.y + g_Settings.boxRadius),
+                                    (long)(bBox.x + i + 1),
+                                    (long)(bBox.h - g_Settings.boxRadius),
+                                    currentColor
+                                ); // лево
+                                overlay.DrawFilledRect(
+                                    (long)(bBox.w - i),
+                                    (long)(bBox.y + g_Settings.boxRadius),
+                                    (long)(bBox.w - i + 1),
+                                    (long)(bBox.h - g_Settings.boxRadius),
+                                    currentColor
+                                ); // право
+
+                                // Закругленные углы
+                                const int segments = 16;
+                                const float step = (2.0f * M_PI) / segments;
+
+                                for (int j = 0; j <= segments / 4; j++) {
+                                    float angle = j * step;
+                                    // Верхний левый угол
+                                    float x1 = bBox.x + g_Settings.boxRadius - cosf(angle) * g_Settings.boxRadius;
+                                    float y1 = bBox.y + g_Settings.boxRadius - sinf(angle) * g_Settings.boxRadius;
+                                    overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), currentColor);
+
+                                    // Верхний правый угол
+                                    x1 = bBox.w - g_Settings.boxRadius + cosf(angle) * g_Settings.boxRadius;
+                                    overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), currentColor);
+
+                                    // Нижний правый угол
+                                    y1 = bBox.h - g_Settings.boxRadius + sinf(angle) * g_Settings.boxRadius;
+                                    overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), currentColor);
+
+                                    // Нижний левый угол
+                                    x1 = bBox.x + g_Settings.boxRadius - cosf(angle) * g_Settings.boxRadius;
+                                    overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), currentColor);
+                                }
+                            }
+                            else {
+                                overlay.DrawRect(
+                                    bBox.x + i - 1,
+                                    bBox.y + i - 1,
+                                    bBox.w - i + 1,
+                                    bBox.h - i + 1,
+                                    1,
+                                    currentColor
+                                );
+                            }
                         }
                     }
                     else {
                         // Обычная обводка
-                        overlay.DrawRect(bBox.x - 1, bBox.y - 1, bBox.w + 1, bBox.h + 1, 1, 0xFF000000);
-                        overlay.DrawRect(bBox.x, bBox.y, bBox.w, bBox.h, 1, g_Settings.boxColor);
-                        overlay.DrawRect(bBox.x + 1, bBox.y + 1, bBox.w - 1, bBox.h - 1, 1, 0xFF000000);
+                        if (g_Settings.bBoxRounded) {
+                            // Основная обводка
+                            overlay.DrawFilledRect(
+                                (long)(bBox.x + g_Settings.boxRadius),
+                                (long)bBox.y,
+                                (long)(bBox.w - g_Settings.boxRadius),
+                                (long)(bBox.y + 1),
+                                g_Settings.boxColor
+                            ); // верх
+                            overlay.DrawFilledRect(
+                                (long)(bBox.x + g_Settings.boxRadius),
+                                (long)bBox.h,
+                                (long)(bBox.w - g_Settings.boxRadius),
+                                (long)(bBox.h + 1),
+                                g_Settings.boxColor
+                            ); // низ
+                            overlay.DrawFilledRect(
+                                (long)bBox.x,
+                                (long)(bBox.y + g_Settings.boxRadius),
+                                (long)(bBox.x + 1),
+                                (long)(bBox.h - g_Settings.boxRadius),
+                                g_Settings.boxColor
+                            ); // лево
+                            overlay.DrawFilledRect(
+                                (long)bBox.w,
+                                (long)(bBox.y + g_Settings.boxRadius),
+                                (long)(bBox.w + 1),
+                                (long)(bBox.h - g_Settings.boxRadius),
+                                g_Settings.boxColor
+                            ); // право
+
+                            // Закругленные углы
+                            const int segments = 16;
+                            const float step = (2.0f * M_PI) / segments;
+
+                            for (int i = 0; i <= segments / 4; i++) {
+                                float angle = i * step;
+                                // Верхний левый угол
+                                float x1 = bBox.x + g_Settings.boxRadius - cosf(angle) * g_Settings.boxRadius;
+                                float y1 = bBox.y + g_Settings.boxRadius - sinf(angle) * g_Settings.boxRadius;
+                                overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), g_Settings.boxColor);
+
+                                // Верхний правый угол
+                                x1 = bBox.w - g_Settings.boxRadius + cosf(angle) * g_Settings.boxRadius;
+                                overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), g_Settings.boxColor);
+
+                                // Нижний правый угол
+                                y1 = bBox.h - g_Settings.boxRadius + sinf(angle) * g_Settings.boxRadius;
+                                overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), g_Settings.boxColor);
+
+                                // Нижний левый угол
+                                x1 = bBox.x + g_Settings.boxRadius - cosf(angle) * g_Settings.boxRadius;
+                                overlay.DrawFilledRect((long)x1, (long)y1, (long)(x1 + 1), (long)(y1 + 1), g_Settings.boxColor);
+                            }
+                        }
+                        else {
+                            overlay.DrawRect(bBox.x - 1, bBox.y - 1, bBox.w + 1, bBox.h + 1, 1, 0xFF000000);
+                            overlay.DrawRect(bBox.x, bBox.y, bBox.w, bBox.h, 1, g_Settings.boxColor);
+                            overlay.DrawRect(bBox.x + 1, bBox.y + 1, bBox.w - 1, bBox.h - 1, 1, 0xFF000000);
+                        }
                     }
                 }
 

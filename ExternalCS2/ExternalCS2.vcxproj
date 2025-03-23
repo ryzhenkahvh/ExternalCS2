@@ -171,6 +171,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="RoundedRect.cpp" />
     <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Source\Helpers\Cacher\CCachedList.cpp" />
     <ClCompile Include="Source\Helpers\Globals.hpp" />
     <ClCompile Include="Source\Helpers\Math\Math.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="RoundedRect.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="Slider.h" />
     <ClInclude Include="Source\Helpers\Cacher\CCachedList.hpp" />
     <ClInclude Include="Source\Helpers\CoolPtr\CoolPtr.hpp" />
     <ClInclude Include="Source\Helpers\Math\Math.hpp" />

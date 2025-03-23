@@ -7,6 +7,8 @@ Settings g_Settings = {
     0xFFFFFFFF,            // boxColor
     0xFF00FF00,            // boxGradientStart
     0xFFFF0000,            // boxGradientEnd
+    true,                   // bBoxRounded
+    4.0f,                   // boxRadius
 
     // Health ESP
     true,                   // bHealthESP

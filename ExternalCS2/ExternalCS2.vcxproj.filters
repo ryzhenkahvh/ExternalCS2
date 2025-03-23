@@ -96,6 +96,9 @@
     <ClCompile Include="ColorModeSelector.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Helpers\Cacher\CCachedList.hpp">
@@ -168,6 +171,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ColorMode.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

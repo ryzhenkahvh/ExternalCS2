@@ -9,6 +9,8 @@ struct Settings {
     DWORD boxColor = 0xFFFFFFFF;
     DWORD boxGradientStart = 0xFF00FF00;
     DWORD boxGradientEnd = 0xFFFF0000;
+    bool bBoxRounded = true;  // Включение/выключение закругления
+    float boxRadius = 2.0f;   // Радиус закругления
 
     // Health ESP
     bool bHealthESP = true;

@@ -4,6 +4,7 @@
 #include "GradientPicker.h"
 #include "ColorMode.h"
 #include "ColorModeSelector.h"
+#include "Slider.h"
 
 Menu::Menu() {
     isVisible = false;
@@ -20,11 +21,13 @@ Menu::Menu() {
         DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, "Arial");
 
     // Добавляем элементы меню
-    // 
+    
     // Box ESP
     items.push_back(new Checkbox("Box ESP", &g_Settings.bBoxESP));
     items.push_back(new ColorModeSelector("Box Color", &g_Settings.boxColorMode,
         &g_Settings.boxColor, &g_Settings.boxGradientStart, &g_Settings.boxGradientEnd));
+    items.push_back(new Checkbox("Rounded Corners", &g_Settings.bBoxRounded));
+    items.push_back(new Slider("Corner Radius", &g_Settings.boxRadius, 0.0f, 15.0f));
 
     // Health ESP
     items.push_back(new Checkbox("Health ESP", &g_Settings.bHealthESP));
@@ -57,10 +60,10 @@ void Menu::Render(Overlay& overlay) {
     if (!isVisible) return;
 
     // Фон меню
-    RoundedRect::DrawFilledRoundedRect(overlay, x, y, width, height, 8.0f, 0xCC1A1A1A);
+    RoundedRect::DrawFilledRoundedRect(overlay, x, y, width, height, 4.0f, 0xCC1A1A1A);
 
     // Заголовок меню
-    RoundedRect::DrawFilledRoundedRect(overlay, x, y, width, 30, 8.0f, 0xFF2D2D2D);
+    RoundedRect::DrawFilledRoundedRect(overlay, x, y, width, 30, 4.0f, 0xFF2D2D2D);
 
     // Текст заголовка
     std::wstring title = L"ry.tech hook";
@@ -74,7 +77,7 @@ void Menu::Render(Overlay& overlay) {
     }
 
     // Рамка меню
-    RoundedRect::DrawRoundedRect(overlay, x, y, width, height, 8.0f, 0xFF3D3D3D);
+    RoundedRect::DrawRoundedRect(overlay, x, y, width, height, 4.0f, 0xFF3D3D3D);
 }
 
 void Menu::HandleInput(int mouseX, int mouseY, bool clicked) {
