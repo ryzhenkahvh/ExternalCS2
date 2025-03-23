@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{0cebf92b-f56a-4382-a44b-cf7fe93cb8ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Helpers">
+      <UniqueIdentifier>{2fd5157d-b55c-4ef6-9848-823f88b649ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Helpers\Cacher">
+      <UniqueIdentifier>{f227c4d9-1f4a-4fe0-97b9-1dc87f6ad8a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Helpers\Math">
+      <UniqueIdentifier>{54c07e16-91ea-4fd0-b045-870021de9ba0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Helpers\MemoryManager">
+      <UniqueIdentifier>{c9991eb9-a0f1-466c-ae92-c496e2020ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Helpers\Offsets">
+      <UniqueIdentifier>{dc80bc36-3223-4aa2-a06e-594daa699d3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Helpers\Overlay">
+      <UniqueIdentifier>{dcfe43de-bb05-4cae-9251-b06e3f9f06a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Helpers\CoolPtr">
+      <UniqueIdentifier>{973660f6-e2c5-457a-9def-70c06cd73da5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Menu">
+      <UniqueIdentifier>{90c75841-1938-464e-a437-19591fdcb039}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Globals.hpp">
+      <Filter>Source\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Cacher\CCachedList.cpp">
+      <Filter>Source\Helpers\Cacher</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Math\Math.cpp">
+      <Filter>Source\Helpers\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\MemoryManager\CMemoryManager.cpp">
+      <Filter>Source\Helpers\MemoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Overlay\Overlay.cpp">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Overlay\RectBinPacker.cpp">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Overlay\SharedStreamWriter.cpp">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Overlay\SharedStream.cpp">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Overlay\StringTextureCache.cpp">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Checkbox.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundedRect.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="GradientPicker.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorUtils.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorModeSelector.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Helpers\Cacher\CCachedList.hpp">
+      <Filter>Source\Helpers\Cacher</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\CoolPtr\CoolPtr.hpp">
+      <Filter>Source\Helpers\CoolPtr</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Math\VMatrix.hpp">
+      <Filter>Source\Helpers\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Math\Vector.hpp">
+      <Filter>Source\Helpers\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Math\Math.hpp">
+      <Filter>Source\Helpers\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\MemoryManager\CMemoryManager.hpp">
+      <Filter>Source\Helpers\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Offsets\Offsets.hpp">
+      <Filter>Source\Helpers\Offsets</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Overlay\CommonDeleters.h">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Overlay\Overlay.h">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Overlay\RectBinPacker.h">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Overlay\SharedStreamWriter.h">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Overlay\SharedStream.h">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Overlay\StringTextureCache.h">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Helpers\Overlay\TextureInfo.h">
+      <Filter>Source\Helpers\Overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Checkbox.h">
+      <Filter>Source\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorPicker.h">
+      <Filter>Source\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Source\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Source\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundedRect.h">
+      <Filter>Source\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Source\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="GradientPicker.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorUtils.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorModeSelector.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorMode.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
