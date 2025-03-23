@@ -17,6 +17,8 @@ public:
     bool IsVisible() const { return isVisible; }
 
 private:
+    bool IsItemVisible(MenuItem* item, float itemX, float availableWidth) const;
+
     bool isVisible;
     float x, y;
     float width, height;
@@ -25,4 +27,18 @@ private:
     float dragOffsetX;
     float dragOffsetY;
     HFONT menuFont;
+
+    bool isResizing;
+    bool isResizingRight;
+    bool isResizingBottom;
+    bool isResizingLeft;
+    bool isResizingBottomLeft;
+    bool isResizingBottomRight;
+    bool isResizingTopLeft;
+    bool isResizingTopRight;
+    bool isResizingTop;
+    float resizeHandleSize;
+    float resizeCornerSize;
+    float minWidth;
+    float minHeight;
 };
