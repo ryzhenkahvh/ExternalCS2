@@ -168,6 +168,7 @@
     <ClCompile Include="ColorPicker.cpp" />
     <ClCompile Include="ColorUtils.cpp" />
     <ClCompile Include="GradientPicker.cpp" />
+    <ClCompile Include="KeyBinder.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="RoundedRect.cpp" />
     <ClCompile Include="Settings.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="ColorPicker.h" />
     <ClInclude Include="ColorUtils.h" />
     <ClInclude Include="GradientPicker.h" />
+    <ClInclude Include="KeyBinder.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="RoundedRect.h" />

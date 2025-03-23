@@ -5,6 +5,23 @@
 #include "ColorMode.h"
 #include "ColorModeSelector.h"
 #include "Slider.h"
+#include "KeyBinder.h"
+
+bool Menu::IsKeyPressed(int key) {
+    static bool pressed[256] = {};
+    static bool lastState[256] = {};
+    bool currentState = (GetAsyncKeyState(key) & 0x8000) != 0;
+
+    if (currentState && !lastState[key]) {
+        pressed[key] = true;
+    }
+    else {
+        pressed[key] = false;
+    }
+
+    lastState[key] = currentState;
+    return pressed[key];
+}
 
 Menu::Menu() {
     isVisible = false;
@@ -57,6 +74,9 @@ Menu::Menu() {
     items.push_back(new Checkbox("Crosshair", &g_Settings.bCrosshair));
     items.push_back(new ColorModeSelector("Crosshair Color", &g_Settings.crosshairColorMode,
         &g_Settings.crosshairColor, &g_Settings.crosshairGradientStart, &g_Settings.crosshairGradientEnd));
+
+    // Panic Key
+    items.push_back(new KeyBinder("Panic Key", &g_Settings.panicKey, &g_Settings.isPanicKeyBeingSet));
 }
 
 Menu::~Menu() {
@@ -104,7 +124,7 @@ void Menu::Render(Overlay& overlay) {
 void Menu::HandleInput(int mouseX, int mouseY, bool clicked) {
     if (!isVisible) return;
 
-    // Проверка курсора на границах и углах для изменения размера
+    // Проверка курсора на границах для изменения размера
     bool onRightEdge = (mouseX >= x + width - resizeHandleSize && mouseX <= x + width + resizeHandleSize);
     bool onBottomEdge = (mouseY >= y + height - resizeHandleSize && mouseY <= y + height + resizeHandleSize);
     bool onLeftEdge = (mouseX >= x - resizeHandleSize && mouseX <= x + resizeHandleSize);

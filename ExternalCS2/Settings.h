@@ -39,6 +39,10 @@ struct Settings {
     DWORD crosshairGradientEnd = 0xFFFF0000;
     int crosshairSize = 2;
     int crosshairThickness = 3;
+
+    // Panic key
+    int panicKey = VK_DELETE; // По умолчанию DELETE
+    bool isPanicKeyBeingSet = false; // Флаг для определения процесса назначения клавиши
 };
 
 extern Settings g_Settings;

@@ -15,6 +15,7 @@ public:
     void HandleInput(int mouseX, int mouseY, bool clicked);
     void Toggle();
     bool IsVisible() const { return isVisible; }
+    static bool IsKeyPressed(int key);
 
 private:
     bool IsItemVisible(MenuItem* item, float itemX, float availableWidth) const;
